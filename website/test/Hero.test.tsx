@@ -7,7 +7,9 @@ describe('Hero', () => {
     render(<Hero />)
  
     const heading = screen.getByRole('heading', { level: 1 })
+    const cta = screen.getByRole('button')
  
     expect(heading).toBeInTheDocument()
+    expect(cta).toBeInTheDocument()
   })
 })
