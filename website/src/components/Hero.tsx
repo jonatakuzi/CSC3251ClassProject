@@ -9,43 +9,7 @@ import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
 import visuallyHidden from '@mui/utils/visuallyHidden';
 import { styled } from '@mui/material/styles';
-import '@testing-library/jest-dom'
-import { render, screen } from '@testing-library/react'
-import Hero from '../src/components/Hero'
 
-describe('Hero', () => {
-  it('renders the main heading (h1)', () => {
-    render(<Hero />)
-    const heading = screen.getByRole('heading', { level: 1 })
-    expect(heading).toBeInTheDocument()
-    expect(heading).toHaveTextContent(/your next great hire/i)
-  })
-
-  it('renders the subheading text', () => {
-    render(<Hero />)
-    const subheading = screen.getByText(/you're on a mission to build exceptional tech teams/i)
-    expect(subheading).toBeInTheDocument()
-  })
-
-  it('renders the CTA button', () => {
-    render(<Hero />)
-    const button = screen.getByRole('button', { name: /go now/i })
-    expect(button).toBeInTheDocument()
-  })
-
-  it('renders the email input field', () => {
-    render(<Hero />)
-    const input = screen.getByPlaceholderText(/enter your email address/i)
-    expect(input).toBeInTheDocument()
-  })
-
-  it('includes the hero visual background', () => {
-    render(<Hero />)
-    const backgroundDiv = document.querySelector('#hero')
-    expect(backgroundDiv).toBeInTheDocument()
-    expect(backgroundDiv).toHaveStyle('background-image')
-  })
-})
 const StyledBox = styled('div')(({ theme }) => ({
   alignSelf: 'center',
   width: '100%',
@@ -75,7 +39,7 @@ export default function Hero() {
   return (
     <Box
       id="hero"
-      sx={(theme: { applyStyles: (arg0: string, arg1: { backgroundImage: string; }) => any; }) => ({
+      sx={(theme) => ({
         width: '100%',
         backgroundRepeat: 'no-repeat',
 
